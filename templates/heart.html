@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="./static/img/health.ico"><!-- Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    *{
+    margin:0;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+    }
+    html,
+    body,
+    header,
+    #intro {
+    height: 100%;
+    }
+    img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    }
+  </style>
+  <title>Predicción Enfermedad Cardiaca</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Salud App</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/Heart_API">Enfermedad Cardiaca</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Kidney_API">Enfermedad Renal</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Diabetes_API">Diabetes</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Liver_API">Enfermedad hepática</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Breast_CancerAPI">Cancer de mama</a>
+          </li>
+          <li class="nav-item active">
+		<a class="nav-link" href="/disclimer">Disclimer</a>
+		</li>
+        </ul>
+      </div>
+    </nav><!--Mask-->
+    <div id="intro" class="container-fluid view">
+      <h3 class="text-center text-capitalize pt-5">Conozca las posibilidades de contraer una enfermedad cardíaca en un solo clic!</h3>
+      <hr class="w-75 mx-auto pt-5">
+      <div class="row mb-5">
+        <div class="col-lg-6 col-md-6 col-12 my-auto"><img src="./static/img/heart.jpg" class="float-left" alt="heart"></div>
+        <div class="col-lg-6 col-md-6 col-12">
+          <form action="{{url_for('predict3')}}" method="post">
+            <div class="form-group">
+              <label for="cp">Tipo de Dolor de Pecho</label> <select class="form-control" id="cp" name="cp" required="required" placeholder="Chest Pain Type">
+                <option value="1">
+                  Angina Tipica
+                </option>
+                <option value="2">
+                  Angina Atipica
+                </option>
+                <option value="3">
+                  Dolor No-Angina
+                </option>
+                <option value="4">
+                  Asimpomatico
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <!-- TODO : Year to accept only year date picker -->
+              <label for="trestbps">Presión arterial en reposo (en mm Hg)</label> <input class="form-control" type="number" id="trestbps" name="trestbps" required="required" placeholder="'mean': 131.624, '25%': 120.0, '75%': 140.0">
+            </div>
+            <div class="form-group">
+              <label for="chol">Suero Colestorol en mg/dl</label> <input class="form-control" type="number" step="any" id="chol" name="chol" required="required" placeholder="'mean': 246.264, '25%': 211.0, '75%': 274.5">
+            </div>
+            <div class="form-group">
+              <label for="fbs">Azúcar en sangre en ayunas</label> <select class="form-control" id="fbs" name="fbs" required="required" placeholder="Fasting Blood Sugar">
+                <option value="0">
+                  Azúcar en sangre en ayunas &lt; 120 mg/dl
+                </option>
+                <option value="1">
+                  Azúcar en sangre en ayunas &gt; 120 mg/dl
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="restecg">Resultado electrocardiográfico en reposo</label> <select class="form-control" type="number" id="restecg" name="restecg" required="required" placeholder="Resting Electro-cardiographic Result">
+                <option value="0">
+                  Normal
+                </option>
+                <option value="1">
+                  tener una anormalidad en la onda ST-T
+                </option>
+                <option value="2">
+                  mostrando una probable o definitiva hipertrofia del ventrículo izquierdo
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="thalach">Ritmo cardíaco máximo alcanzado</label> <input class="form-control" id="thalach" name="thalach" required="required" placeholder="'mean': 149.647, '25%': 133.5, '75%': 166.0">
+            </div>
+            <div class="form-group">
+              <label for="exang">Angina inducida por el ejercicio</label> <select class="form-control" id="exang" name="exang" required="required">
+                <option value="1">
+                  Si
+                </option>
+                <option value="0">
+                  No
+                </option>
+              </select>
+            </div><button type="submit" class="btn btn-danger">Predice</button>
+          </form>
+        </div>
+      </div>
+    </div><!--/.Mask-->
+  </header>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script> <!-- Optional JavaScript -->
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

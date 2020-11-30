@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+ <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../static/img/health.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <style>
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+</style>
+    <title>Resultado</title>
+  </head>
+   <body style="margin-top:0; text-align:center;">
+   <header>
+   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Salud App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/Heart_API">Enfermedad Cardiaca</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Kidney_API">Enfermedad Renal</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Diabetes_API">Diabetes</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Liver_API">Enfermedad hepática</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Breast_CancerAPI">Cancer de mama</a>
+            </li>
+            <li class="nav-item active">
+		<a class="nav-link" href="/disclimer">Disclimer</a>
+		</li>
+          </ul>
+        </div>
+      </nav>
+   
+   </header>
+   <br />
+   <br />
+   <div class="content">
+  <!-- Page content -->
+  <h1 style="margin-top:0;">{{ prediction_text }}</h1>
+</div>
+	<p>&copy; 2020 Oscar Rojo<a class="nav-link" href="www.oscarrojo.es">Oscar Rojo</a><p>
+	<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons Reconocimiento 4.0 Internacional</a>
+   </body>
+</html>
