@@ -5,7 +5,7 @@
 ![](static/img/Health_Care_Professionals-ANIMATION.gif)
 
 
-Este es mi proyecto final para la formación en BigData de Deusto.
+Este es mi proyecto final.
 
 Primero crear el entorno virtual
 $ pipenv install flask gunicorn
